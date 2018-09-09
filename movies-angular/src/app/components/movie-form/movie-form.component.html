@@ -1,0 +1,36 @@
+<form (submit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && titleField.errors}">
+      <label>Title</label>
+      <input type="text" name="title" [(ngModel)]="movie.title" #titleField="ngModel" required [disabled]="processing" placeholder="Title"/>
+      <div *ngIf="feedbackEnabled && titleField.errors">
+        <p *ngIf="titleField.errors.required" class="validation">Title required</p>
+      </div>
+    </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && yearField.errors}">
+        <label>Year</label>
+        <input type="text" name="year" [(ngModel)]="movie.year" #yearField="ngModel" required [disabled]="processing" placeholder="Year"/>
+        <div *ngIf="feedbackEnabled && yearField.errors">
+          <p *ngIf="yearField.errors.required" class="validation">Year required</p>
+        </div>
+      </div>
+
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && imageField.errors}">
+          <label>Image</label>
+          <input type="text" name="image" [(ngModel)]="movie.posterUrl" #imageField="ngModel" required [disabled]="processing" placeholder="Image"/>
+          <div *ngIf="feedbackEnabled && imageField.errors">
+            <p *ngIf="imageField.errors.required" class="validation">Image required</p>
+          </div>
+        </div>
+  
+  
+    <div class="field submit">
+      <button type="submit" [disabled]="processing">Submit</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+  </form>
+
+ <!-- -- {{movie | json}} --- //DEBUGGER-->

@@ -1,0 +1,7 @@
+<app-movie-form [feedbackEnabled]="feedbackEnabled" [processing]="processing" [error]="error" (submitdata)="handleSubmitForm($event)"></app-movie-form>
+<div class="field" *ngIf="error">
+  <p class="validation">{{error}}</p>
+</div>
+
+
+---{{error}}----

@@ -1,0 +1,13 @@
+<ng-container *ngIf="!movie">
+  Loading ...
+</ng-container>
+
+<ng-container *ngIf="movie">
+  <app-movie-card [movie]="movie"></app-movie-card>
+  <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+    <div *ngIf="!!user">
+      <a [routerLink]="['/movies', movie._id, 'edit']">Edit</a>
+      <button class="btn" (click)="handleDeleteClick()">Delete</button>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,15 @@
+<h1>Iron Movies</h1>
+
+<div class="container">
+  <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+    <div *ngIf="!!user">
+      <a [routerLink]="['/movies/create']">Create</a>
+    </div>
+  </div>
+  <ul *ngFor="let movie of movies">
+    <li>
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </li>
+    <a [routerLink]="['/movies', movie._id]">Detail</a>
+  </ul>
+</div>

@@ -1,0 +1,9 @@
+<div *ngIf="!movie">
+  <h1>Loading ....</h1>
+</div>
+
+<div class="card" *ngIf="movie">
+  <h3>{{movie.title}}</h3>
+  <p>Year: {{movie.year}}</p>
+  <img [src]="movie.posterUrl"/>
+</div>
